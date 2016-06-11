@@ -21,19 +21,19 @@
 
 1. **Tokenizing/Lexing:** разбиение последовательности символов на имеющие значение (для языка) куски, называемые tokens. Например, рассмортим программу: `var a = 2;`. Эта программа скорее всего будет разбита на следующие tokens: `var`, `a`, `=`, `2`, и `;`. Пробел может или не может быть сохранен как token, в зависимости от того, имеет он значение или нет.
 
-    **Примечание:** The difference between tokenizing and lexing is subtle and academic, but it centers on whether or not these tokens are identified in a *stateless* or *stateful* way. Put simply, if the tokenizer were to invoke stateful parsing rules to figure out whether `a` should be considered a distinct token or just part of another token, *that* would be **lexing**.
+    **Примечание:** Разница между tokenizing и lexing едва различима и академична, but it centers on whether or not these tokens are identified in a *stateless* or *stateful* way. Проще говоря, if the tokenizer were to invoke stateful parsing rules to figure out whether `a` should be considered a distinct token or just part of another token, *that* would be **lexing**.
 
 2. **Parsing:** taking a stream (массив) of tokens и превращение его в дерево вложенных элементов, которые в совокупности представляют грамматическую структуру программы. Это дерево называется "AST" (<b>A</b>bstract <b>S</b>yntax <b>T</b>ree).
 
-    The tree for `var a = 2;` might start with a top-level node called `VariableDeclaration`, with a child node called `Identifier` (whose value is `a`), and another child called `AssignmentExpression` which itself has a child called `NumericLiteral` (whose value is `2`).
+    Дерево для `var a = 2;` может начаться с узла верхнего уровня именуемого `VariableDeclaration`, с дочернего узла именуемого `Identifier` (значение которого `a`), и другого дочернего узла именуемого `AssignmentExpression`, который сам имеет дочерний узел именуемый `NumericLiteral` (значение которого `2`).
 
-3. **Code-Generation:** the process of taking an AST and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
+3. **Code-Generation:** процесс of taking an AST и превращения его в executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
 
-    So, rather than get mired in details, we'll just handwave and say that there's a way to take our above described AST for `var a = 2;` and turn it into a set of machine instructions to actually *create* a variable called `a` (including reserving memory, etc.), and then store a value into `a`.
+    Итак, чтобы не погрязнуть в деталях, мы we'll just handwave и скажем, что есть способ взять выше описанное AST для `var a = 2;` и превратить его в набор машинных инструкций для того, чтобы на самом деле *создать* переменную с именем `a` (including reserving memory, etc.), а затем сохранить значение в `a`.
 
     **Примечание:** The details of how the engine manages system resources are deeper than we will dig, so we'll just take it for granted that the engine is able to create and store variables as needed.
 
-The JavaScript engine is vastly more complex than *just* those three steps, as are most other language compilers. For instance, in the process of parsing and code-generation, there are certainly steps to optimize the performance of the execution, including collapsing redundant elements, etc.
+Движок JavaScript значительно более сложнее чем *эти* три этапа, как и большинство других компиляторов. For instance, in the process of parsing and code-generation, there are certainly steps to optimize the performance of the execution, including collapsing redundant elements, etc.
 
 So, I'm painting only with broad strokes here. But I think you'll see shortly why *these* details we *do* cover, even at a high level, are relevant.
 
@@ -43,29 +43,29 @@ For JavaScript, the compilation that occurs happens, in many cases, mere microse
 
 Let's just say, for simplicity's sake, that any snippet of JavaScript has to be compiled before (usually *right* before!) it's executed. So, the JS compiler will take the program `var a = 2;` and compile it *first*, and then be ready to execute it, usually right away.
 
-## Understanding Scope
+## Понимание Scope
 
-The way we will approach learning about scope is to think of the process in terms of a conversation. But, *who* is having the conversation?
+Путь, который мы выбирем для изучения scope - это думать о процессе, как о беседе. Но *кто* будет вести эту беседу?
 
-### The Cast
+### В ролях
 
-Let's meet the cast of characters that interact to process the program `var a = 2;`, so we understand their conversations that we'll listen in on shortly:
+Давайте познакомимся с персонажами, которые учавствуют в процессе выполнения программы `var a = 2;`, так мы поймем их беседу, которую скоро услышим:
 
-1. *Engine*: responsible for start-to-finish compilation and execution of our JavaScript program.
+1. *Engine*: ответственный от начала до конца за компиляцию и выполнение нашей JavaScript программы.
 
-2. *Compiler*: one of *Engine*'s friends; handles all the dirty work of parsing and code-generation (see previous section).
+2. *Compiler*: один из друзей *Engine*; выполняет всю грязную работу по синтаксическому анализу(parsing) и генерации кода (см. предыдущий раздел).
 
-3. *Scope*: another friend of *Engine*; collects and maintains a look-up list of all the declared identifiers (variables), and enforces a strict set of rules as to how these are accessible to currently executing code.
+3. *Scope*: другой друг *Engine*; собирает и сохраняет look-up список всех объявленных идентификаторов (переменных), и обеспечивает соблюдение строгого набора правил в отношении as to how these are accessible to currently executing code.
 
 For you to *fully understand* how JavaScript works, you need to begin to *think* like *Engine* (and friends) think, ask the questions they ask, and answer those questions the same.
 
 ### Back & Forth
 
-When you see the program `var a = 2;`, you most likely think of that as one statement. But that's not how our new friend *Engine* sees it. In fact, *Engine* sees two distinct statements, one which *Compiler* will handle during compilation, and one which *Engine* will handle during execution.
+Когда вы видите программу `var a = 2;`, вы скорее всего думаете о ней, как об одном выражении. Но, наш новый друг *Engine* видит её иначе. На самом деле, *Engine* видит два отдельных выражения, одно, которое *Compiler* будет обрабатывать во время компиляции, и одно, которое *Engine* будет обрабатывать во время выполнения.
 
-So, let's break down how *Engine* and friends will approach the program `var a = 2;`.
+Итак, давайте разберем как *Engine* и его друзья подойдут к программе `var a = 2;`.
 
-The first thing *Compiler* will do with this program is perform lexing to break it down into tokens, which it will then parse into a tree. But when *Compiler* gets to code-generation, it will treat this program somewhat differently than perhaps assumed.
+Первое, что сделает *Compiler* с программой это выполнит лексический анализ, чтобы разбить ее на tokens, из которых он потом соберет дерево. But when *Compiler* gets to code-generation, it will treat this program somewhat differently than perhaps assumed.
 
 A reasonable assumption would be that *Compiler* will produce code that could be summed up by this pseudo-code: "Allocate memory for a variable, label it `a`, then stick the value `2` into that variable." Unfortunately, that's not quite accurate.
 
