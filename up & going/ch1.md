@@ -1,9 +1,9 @@
-# You Don't Know JS: Up & Going
-# Chapter 1: Into Programming
+# Вы не знаете JS: Up & Going
+# Глава 1: Into Programming
 
-Welcome to the *You Don't Know JS* (*YDKJS*) series.
+Добро пожаловать в серию *Вы не знаете JS* (*YDKJS*).
 
-*Up & Going* is an introduction to several basic concepts of programming -- of course we lean toward JavaScript (often abbreviated JS) specifically -- and how to approach and understand the rest of the titles in this series. Especially if you're just getting into programming and/or JavaScript, this book will briefly explore what you need to get *up and going*.
+*Up & Going* это введение в некоторые базовые концепции программирования -- конечно мы склоняемся конкретно к JavaScript (сокращенно JS) -- и как подойти и разобраться the rest of the titles in this series. Особенно если вы только начинаете обучаться программированию и/или языку JavaScript, эта книга кратко рассмотрит все, что необходимо, чтобы *up and going*.
 
 This book starts off explaining the basic principles of programming at a very high level. It's mostly intended if you are starting *YDKJS* with little to no prior programming experience, and are looking to these books to help get you started along a path to understanding programming through the lens of JavaScript.
 
@@ -84,7 +84,7 @@ For other languages, the translation is done ahead of time, called *compiling* t
 
 It's typically asserted that JavaScript is *interpreted*, because your JavaScript source code is processed each time it's run. But that's not entirely accurate. The JavaScript engine actually *compiles* the program on the fly and then immediately runs the compiled code.
 
-**Note:** For more information on JavaScript compiling, see the first two chapters of the *Scope & Closures* title of this series.
+**Примечание:** For more information on JavaScript compiling, see the first two chapters of the *Scope & Closures* title of this series.
 
 ## Try It Yourself
 
@@ -209,7 +209,7 @@ Here are some of the most common operators in JavaScript:
 
    These operators are used to express compound conditionals (see "Conditionals"), like if either `a` *or* `b` is true.
 
-**Note:** For much more detail, and coverage of operators not mentioned here, see the Mozilla Developer Network (MDN)'s "Expressions and Operators" (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators).
+**Примечание:** For much more detail, and coverage of operators not mentioned here, see the Mozilla Developer Network (MDN)'s "Expressions and Operators" (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators).
 
 ## Values & Types
 
@@ -271,7 +271,7 @@ While designed to help you, implicit coercion can create confusion if you haven'
 
 However, implicit coercion is a mechanism that *can be learned*, and moreover *should be learned* by anyone wishing to take JavaScript programming seriously. Not only is it not confusing once you learn the rules, it can actually make your programs better! The effort is well worth it.
 
-**Note:** For more information on coercion, see Chapter 2 of this title and Chapter 4 of the *Types & Grammar* title of this series.
+**Примечание:** For more information on coercion, see Chapter 2 of this title and Chapter 4 of the *Types & Grammar* title of this series.
 
 ## Code Comments
 
@@ -394,7 +394,7 @@ console.log( amount );				// 215.9784
 console.log( amount.toFixed( 2 ) );	// "215.98"
 ```
 
-**Note:** Similar to how `console.log(..)` is a function `log(..)` accessed as an object property on the `console` value, `toFixed(..)` here is a function that can be accessed on `number` values. JavaScript `number`s aren't automatically formatted for dollars -- the engine doesn't know what your intent is and there's no type for currency. `toFixed(..)` lets us specify how many decimal places we'd like the `number` rounded to, and it produces the `string` as necessary.
+**Примечание:** Similar to how `console.log(..)` is a function `log(..)` accessed as an object property on the `console` value, `toFixed(..)` here is a function that can be accessed on `number` values. JavaScript `number`s aren't automatically formatted for dollars -- the engine doesn't know what your intent is and there's no type for currency. `toFixed(..)` lets us specify how many decimal places we'd like the `number` rounded to, and it produces the `string` as necessary.
 
 The `TAX_RATE` variable is only *constant* by convention -- there's nothing special in this program that prevents it from being changed. But if the city raises the sales tax rate to 9%, we can still easily update our program by setting the `TAX_RATE` assigned value to `0.09` in one place, instead of finding many occurrences of the value `0.08` strewn throughout the program and updating all of them.
 
@@ -413,7 +413,7 @@ Constants are useful just like variables with unchanged values, except that cons
 
 By the way, that kind of "protection" against mistakes is similar to the static-typing type enforcement, so you can see why static types in other languages can be attractive!
 
-**Note:** For more information about how different values in variables can be used in your programs, see the *Types & Grammar* title of this series.
+**Примечание:** For more information about how different values in variables can be used in your programs, see the *Types & Grammar* title of this series.
 
 ## Blocks
 
@@ -445,7 +445,7 @@ if (amount > 10) {			// <-- block attached to `if`
 
 We'll explain `if` statements in the next section, but as you can see, the `{ .. }` block with its two statements is attached to `if (amount > 10)`; the statements inside the block will only be processed if the conditional passes.
 
-**Note:** Unlike most other statements like `console.log(amount);`, a block statement does not need a semicolon (`;`) to conclude it.
+**Примечание:** Unlike most other statements like `console.log(amount);`, a block statement does not need a semicolon (`;`) to conclude it.
 
 ## Conditionals
 
@@ -495,7 +495,7 @@ JavaScript defines a list of specific values that are considered "falsy" because
 
 *Conditionals* exist in other forms besides the `if`. For example, the `switch` statement can be used as a shorthand for a series of `if..else` statements (see Chapter 2). Loops (see "Loops") use a *conditional* to determine if the loop should keep going or stop.
 
-**Note:** For deeper information about the coercions that can occur implicitly in the test expressions of *conditionals*, see Chapter 4 of the *Types & Grammar* title of this series.
+**Примечание:** For deeper information about the coercions that can occur implicitly in the test expressions of *conditionals*, see Chapter 4 of the *Types & Grammar* title of this series.
 
 ## Loops
 
@@ -710,9 +710,9 @@ function calculateFinalPurchaseAmount(amt) {
 
 The `TAX_RATE` constant (variable) is accessible from inside the `calculateFinalPurchaseAmount(..)` function, even though we didn't pass it in, because of lexical scope.
 
-**Note:** For more information about lexical scope, see the first three chapters of the *Scope & Closures* title of this series.
+**Примечание:** For more information about lexical scope, see the first three chapters of the *Scope & Closures* title of this series.
 
-## Practice
+## Практика
 
 There is absolutely no substitute for practice in learning programming. No amount of articulate writing on my part is alone going to make you a programmer.
 
@@ -727,7 +727,7 @@ With that in mind, let's try practicing some of the concepts we learned here in 
 
 OK, go ahead. Try it. Don't peek at my code listing until you've given it a shot yourself!
 
-**Note:** Because this is a JavaScript book, I'm obviously going to solve the practice exercise in JavaScript. But you can do it in another language for now if you feel more comfortable.
+**Примечание:** Because this is a JavaScript book, I'm obviously going to solve the practice exercise in JavaScript. But you can do it in another language for now if you feel more comfortable.
 
 Here's my JavaScript solution for this exercise:
 
@@ -776,7 +776,7 @@ if (amount > bank_balance) {
 // You can't afford this purchase. :(
 ```
 
-**Note:** The simplest way to run this JavaScript program is to type it into the developer console of your nearest browser.
+**Примечание:** The simplest way to run this JavaScript program is to type it into the developer console of your nearest browser.
 
 How did you do? It wouldn't hurt to try it again now that you've seen my code. And play around with changing some of the constants to see how the program runs with different values.
 
@@ -795,8 +795,8 @@ These act like building blocks. To build a tall tower, you start first by puttin
 
 Code comments are one effective way to write more readable code, which makes your program easier to understand, maintain, and fix later if there are problems.
 
-Finally, don't neglect the power of practice. The best way to learn how to write code is to write code.
+И наконец, не пренебрегайте силой практики. Лучший способ научиться писать код - это писать код.
 
 I'm excited you're well on your way to learning how to code, now! Keep it up. Don't forget to check out other beginner programming resources (books, blogs, online training, etc.). This chapter and this book are a great start, but they're just a brief introduction.
 
-The next chapter will review many of the concepts from this chapter, but from a more JavaScript-specific perspective, which will highlight most of the major topics that are addressed in deeper detail throughout the rest of the series.
+В следующей главе мы проверим большинство концепций из этой главы, but from a more JavaScript-specific perspective, which will highlight most of the major topics that are addressed in deeper detail throughout the rest of the series.
