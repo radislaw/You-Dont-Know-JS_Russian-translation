@@ -1,4 +1,4 @@
-# You Don't Know JS: Scope & Closures
+# Вы не знаете JS: Scope & Closures
 
 <img src="cover.jpg" width="300">
 
@@ -8,7 +8,7 @@
 
 -----
 
-[Table of Contents](toc.md)
+[Содержание](toc.md)
 
 * [Foreword](https://shanehudson.net/2014/06/03/foreword-dont-know-js/) (by [Shane Hudson](https://github.com/shanehudson))
 * [Preface](../preface.md)
