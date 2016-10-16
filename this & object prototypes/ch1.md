@@ -1,19 +1,19 @@
 # You Don't Know JS: *this* & Object Prototypes
 # Chapter 1: `this` Or That?
 
-Один из самых confused механизмов в JavaScript это ключевое слово `this'. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to bedevils even seasoned JavaScript developers.
+Один из самых запутанных механизмов в JavaScript это ключевое слово `this`. It's a special identifier keyword that's automatically defined in the scope of every function, но что именно оно означает, терзает даже опытных JavaScript разработчиков.
 
-> Any sufficiently *advanced* technology is indistinguishable from magic. -- Arthur C. Clarke
+> Любая достаточно *развитая* технология неотличима от магии. -- Arthur C. Clarke
 
-JavaScript's `this` mechanism isn't actually *that* advanced, but developers often paraphrase that quote in their own mind by inserting "complex" or "confusing", and there's no question that without lack of clear understanding, `this` can seem downright magical in *your* confusion.
+Механизм `this` в JavaScript's не *такой* уж и продвинутый, но разработчики часто перефразируют это высказывание в своих умах, by inserting "complex" or "confusing", и нет никаких сомнений, что без отсутствия четкого понимания, `this` может показаться прямо-таки волшебным in *your* confusion.
 
-**Note:** The word "this" is a terribly common pronoun in general discourse. So, it can be very difficult, especially verbally, to determine whether we are using "this" as a pronoun or using it to refer to the actual keyword identifier. For clarity, I will always use `this` to refer to the special keyword, and "this" or *this* or this otherwise.
+**Примечание:** The word "this" is a terribly common pronoun in general discourse. So, it can be very difficult, especially verbally, to determine whether we are using "this" as a pronoun or using it to refer to the actual keyword identifier. For clarity, I will always use `this` to refer to the special keyword, and "this" or *this* or this otherwise.
 
-## Why `this`?
+## Почему `this`?
 
-If the `this` mechanism is so confusing, even to seasoned JavaScript developers, one may wonder why it's even useful? Is it more trouble than it's worth? Before we jump into the *how*, we should examine the *why*.
+Если механизм `this` такой запутанный, даже для для опытных JavaScript разработчиков, можно задаться вопросом: почему он все еще полезен? Может он создает больше проблем, чем пользы? Прежде чем мы перейдем к "*как*", мы должны изучить, "*почему*".
 
-Let's try to illustrate the motivation and utility of `this`:
+Давайте попробуем проиллюстрировать мотивацию и выгоду `this`:
 
 ```js
 function identify() {
@@ -40,7 +40,7 @@ speak.call( me ); // Hello, I'm KYLE
 speak.call( you ); // Hello, I'm READER
 ```
 
-If the *how* of this snippet confuses you, don't worry! We'll get to that shortly. Just set those questions aside briefly so we can look into the *why* more clearly.
+Если "*как*" в этом фрагменте вас смущает, не волнуйтесь! Мы скоро дойдем до этого. Just set those questions aside briefly so we can look into the *why* more clearly.
 
 This code snippet allows the `identify()` and `speak()` functions to be re-used against multiple *context* (`me` and `you`) objects, rather than needing a separate version of the function for each object.
 
