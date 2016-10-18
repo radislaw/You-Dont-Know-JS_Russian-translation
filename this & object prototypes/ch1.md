@@ -42,9 +42,9 @@ speak.call( you ); // Hello, I'm READER
 
 Если "*как*" в этом фрагменте вас смущает, не волнуйтесь! Мы скоро дойдем до этого. Just set those questions aside briefly so we can look into the *why* more clearly.
 
-This code snippet allows the `identify()` and `speak()` functions to be re-used against multiple *context* (`me` and `you`) objects, rather than needing a separate version of the function for each object.
+Этот фрагмент кода позволяет This code snippet allows the `identify()` and `speak()` functions to be re-used against multiple *context* (`me` and `you`) objects, rather than needing a separate version of the function for each object.
 
-Instead of relying on `this`, you could have explicitly passed in a context object to both `identify()` and `speak()`.
+Вместо того, чтобы полагаться на Instead of relying on `this`, вы могли бы явным образом you could have explicitly passed in a context object to both `identify()` and `speak()`.
 
 ```js
 function identify(context) {
@@ -60,15 +60,15 @@ identify( you ); // READER
 speak( me ); // Hello, I'm KYLE
 ```
 
-However, the `this` mechanism provides a more elegant way of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.
+Однако, механизм `this` предоставляет более элегантный способ of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.
 
 The more complex your usage pattern is, the more clearly you'll see that passing context around as an explicit parameter is often messier than passing around a `this` context. When we explore objects and prototypes, you will see the helpfulness of a collection of functions being able to automatically reference the proper context object.
 
 ## Confusions
 
-We'll soon begin to explain how `this` *actually* works, but first we must  dispel some misconceptions about how it *doesn't* actually work.
+Скоро мы начнем объяснять, как `this` работает *на самом деле*, но сначала мы должны развеять некоторые заблуждения о том, как оно на самом деле *не* работает.
 
-The name "this" creates confusion when developers try to think about it too literally. There are two meanings often assumed, but both are incorrect.
+Название "this" создает путаницу, когда разработчики стараются думать о нем слишком буквально. Часто предпологается два значения, но оба неверны.
 
 ### Itself
 
@@ -150,7 +150,7 @@ While it is true that this approach "solves" the problem, unfortunately it simpl
 
 To reference a function object from inside itself, `this` by itself will typically be insufficient. You generally need a reference to the function object via a lexical identifier (variable) that points at it.
 
-Consider these two functions:
+Рассмотрим эти две функции:
 
 ```js
 function foo() {
@@ -274,7 +274,7 @@ In the next chapter, we will learn to find a function's **call-site** to determi
 
 ## Review (TL;DR)
 
-`this` binding is a constant source of confusion for the JavaScript developer who does not take the time to learn how the mechanism actually works. Guesses, trial-and-error, and blind copy-n-paste from Stack Overflow answers is not an effective or proper way to leverage *this* important `this` mechanism.
+`this` binding является постоянным источником путаницы для JavaScript разработчиков, которые не уделили времени для изучения того, как на самом деле работает этот механизм. Guesses, trial-and-error, and blind copy-n-paste from Stack Overflow answers is not an effective or proper way to leverage *this* important `this` mechanism.
 
 To learn `this`, you first have to learn what `this` is *not*, despite any assumptions or misconceptions that may lead you down those paths. `this` is neither a reference to the function itself, nor is it a reference to the function's *lexical* scope.
 
