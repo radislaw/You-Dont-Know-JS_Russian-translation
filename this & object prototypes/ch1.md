@@ -1,11 +1,11 @@
 # You Don't Know JS: *this* & Object Prototypes
 # Chapter 1: `this` Or That?
 
-Один из самых запутанных механизмов в JavaScript это ключевое слово `this`. It's a special identifier keyword that's automatically defined in the scope of every function, но что именно оно означает, терзает даже опытных JavaScript разработчиков.
+Один из самых запутанных механизмов в JavaScript это ключевое слово `this`. Это специальное ключевое слово идентификатор, которое авотматически устанавливается в области действия(scope) каждой функции, но что именно оно означает, терзает даже опытных JavaScript разработчиков.
 
 > Любая достаточно *развитая* технология неотличима от магии. -- Arthur C. Clarke
 
-Механизм `this` в JavaScript's не *такой* уж и продвинутый, но разработчики часто перефразируют это высказывание в своих умах, by inserting "complex" or "confusing", и нет никаких сомнений, что без отсутствия четкого понимания, `this` может показаться прямо-таки волшебным in *your* confusion.
+Механизм `this` в JavaScript's не *такой* уж и продвинутый, но разработчики часто перефразируют это высказывание в своих умах, усложняя и запутывая его значение, и нет никаких сомнений, что без отсутствия четкого понимания, `this` может показаться прямо-таки волшебным in *your* confusion.
 
 **Примечание:** The word "this" is a terribly common pronoun in general discourse. So, it can be very difficult, especially verbally, to determine whether we are using "this" as a pronoun or using it to refer to the actual keyword identifier. For clarity, I will always use `this` to refer to the special keyword, and "this" or *this* or this otherwise.
 
