@@ -1,7 +1,9 @@
 # You Don't Know JS: Up & Going
 # Chapter 3: Into YDKJS
 
-What is this series all about? Put simply, it's about taking seriously the task of learning *all parts of JavaScript*, not just some subset of the language that someone called "the good parts," and not just whatever minimal amount you need to get your job done at work.
+О чем идет речь в этой серии книг? Проще говоря, речь идет о серьезной задаче изучения *всех частей JavaScript*, не просто о какой-то подкатегории языка, которую кто-то назвал "the good parts", и не только о том, что минимально необходимо вам, чтобы выполнить задачу на работе.
+
+Серьезные разработчики на других языках прилагают все усилия, чтобы узнать все или почти все о языке(языках), на которых они в первую очередь пишут, но JS-разработчики, кажется, чтобы выделиться из толпы в смысле обучения, как правило, не очень много. Это не очень хорошо, и это не то, что мы должны продолжать, чтобы быть нормой.
 
 Serious developers in other languages expect to put in the effort to learn most or all of the language(s) they primarily write in, but JS developers seem to stand out from the crowd in the sense of typically not learning very much of the language. This is not a good thing, and it's not something we should continue to allow to be the norm.
 
