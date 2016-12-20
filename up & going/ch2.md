@@ -1,19 +1,20 @@
 # You Don't Know JS: Up & Going
 # Chapter 2: Into JavaScript
 
-In the previous chapter, I introduced the basic building blocks of programming, such as variables, loops, conditionals, and functions. Of course, all the code shown has been in JavaScript. But in this chapter, we want to focus specifically on things you need to know about JavaScript to get up and going as a JS developer.
+В предидущей главе, я представил базовые строительные блоки программирования, такие как переменные, циклы, условные выражения и функции. Конечно, весь показанный код написан на JavaScript. Но в этой главе, мы сфокусируемся конкретно на вещах, которые вам необходимо знать о JavaScript, для того, чтобы стать JS разработчиком.
 
-We will introduce quite a few concepts in this chapter that will not be fully explored until subsequent *YDKJS* books. You can think of this chapter as an overview of the topics covered in detail throughout the rest of this series.
+В данной главе, мы введем несколько понятий, которые не будут полностью изучены до последующих книг *YDKJS*. Вы можете думать об этой главе, как об обзоре тем, подробно освещеных на протяжении всей серии.
 
-Especially if you're new to JavaScript, you should expect to spend quite a bit of time reviewing the concepts and code examples here multiple times. Any good foundation is laid brick by brick, so don't expect that you'll immediately understand it all the first pass through.
 
-Your journey to deeply learn JavaScript starts here.
+Особенно если вы новичок в JavaScript, вы должны потратить совсем немного времени на повторный пересмотр понятий и примеров кода несколько раз. Любой хороший фундамент закладывается по кирпичику, так что не ожидайте, что вы сразу поймете это все с первого раза.
 
-**Note:** As I said in Chapter 1, you should definitely try all this code yourself as you read and work through this chapter. Be aware that some of the code here assumes capabilities introduced in the newest version of JavaScript at the time of this writing (commonly referred to as "ES6" for the 6th edition of ECMAScript -- the official name of the JS specification). If you happen to be using an older, pre-ES6 browser, the code may not work. A recent update of a modern browser (like Chrome, Firefox, or IE) should be used.
+Ваше путешествие в глубокое познание JavaScript начинается здесь.
+
+**Note:** Как я говорил в главе 1, вы должны обязательно попробовать весь этот код сами по мере чтения и работы над этой главой. Помните, что некоторый код здесь предполагает функциональные возможности, появившиеся в последней версии JavaScript на момент написания этой статьи (как правило, называемой "ES6" в 6-й редакции ecmascript, -- официальное название Спецификации JS). Если вы используете в браузере старую версию, до es6, то код может не работать. Следует использовать последние обновления современного браузера (например, Chrome, FireFox, или IE).
 
 ## Values & Types
 
-As we asserted in Chapter 1, JavaScript has typed values, not typed variables. The following built-in types are available:
+Как мы утверждали в главе 1, в JavaScript есть типизированные значения, не типизированные переменные. Доступны следующие встроенные типы:
 
 * `string`
 * `number`
@@ -22,7 +23,7 @@ As we asserted in Chapter 1, JavaScript has typed values, not typed variables. T
 * `object`
 * `symbol` (new to ES6)
 
-JavaScript provides a `typeof` operator that can examine a value and tell you what type it is:
+В JavaScript предусмотрен оператора `typeof` оператор, который может исследовать значение и сказать вам, какой это тип:
 
 ```js
 var a;
@@ -38,7 +39,7 @@ a = true;
 typeof a;				// "boolean"
 
 a = null;
-typeof a;				// "object" -- weird, bug
+typeof a;				// "object" -- нелепость, ошибка
 
 a = undefined;
 typeof a;				// "undefined"
@@ -47,7 +48,7 @@ a = { b: "c" };
 typeof a;				// "object"
 ```
 
-The return value from the `typeof` operator is always one of six (seven as of ES6! - the "symbol" type) string values. That is, `typeof "abc"` returns `"string"`, not `string`.
+Возвращаемое значение от вызова оператора `typeof` всегда одно из шести (семи, в es6! - тип "symbol") строковых значений. То есть, вызов `typeof "abc"` возвращает `"string"`, а не `string`.
 
 Notice how in this snippet the `a` variable holds every different type of value, and that despite appearances, `typeof a` is not asking for the "type of `a`", but rather for the "type of the value currently in `a`." Only values have types in JavaScript; variables are just simple containers for those values.
 
