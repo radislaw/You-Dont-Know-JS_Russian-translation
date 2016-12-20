@@ -951,14 +951,14 @@ Another example is with input/output (I/O).
 
 Everyone's favorite `alert(..)` pops up a message box in the user's browser window. `alert(..)` is provided to your JS program by the browser, not by the JS engine itself. The call you make sends the message to the browser internals and it handles drawing and displaying the message box.
 
-The same goes with `console.log(..)`; your browser provides such mechanisms and hooks them up to the developer tools.
+То же самое с `console.log(..)`; ваш браузер предоставляет такие механизмы и крючки их в инструменты разработчика.your browser provides such mechanisms and hooks them up to the developer tools.
 
-This book, and this whole series, focuses on JavaScript the language. That's why you don't see any substantial coverage of these non-JavaScript JavaScript mechanisms. Nevertheless, you need to be aware of them, as they'll be in every JS program you write!
+Эта книга, и вся серия, ориентирована на язык JavaScript. Вот почему вы не видите каких-либо существенных покрытия этих не-JavaScript механизмов на JavaScript. That's why you don't see any substantial coverage of these non-JavaScript JavaScript mechanisms. Тем не менее, вы должны знать о них, так как они будут в каждой вашей программе на JS!
 
 ## Review
 
-The first step to learning JavaScript's flavor of programming is to get a basic understanding of its core mechanisms like values, types, function closures, `this`, and prototypes.
+Первый шаг к изучению программирования на JavaScript, состоит в том, чтобы получить базовое понимание основных механизмов, таких как значения, типы, замыкания функций, `this`, и прототипы.
 
-Of course, each of these topics deserves much greater coverage than you've seen here, but that's why they have chapters and books dedicated to them throughout the rest of this series. After you feel pretty comfortable with the concepts and code samples in this chapter, the rest of the series awaits you to really dig in and get to know the language deeply.
+Конечно, каждая из этих тем заслуживает гораздо большего охвата, чем вы видели здесь, и вот почему на протяжении всей серии каждой из них посвященны главы и книги. После того как вы почувствуете себя довольно комфортно с понятиями и примерами кода в этой главе, в остальных книгах серии вас ждет действительное погружение в язык и глубокое его понимание.
 
-The final chapter of this book will briefly summarize each of the other titles in the series and the other concepts they cover besides what we've already explored.
+Последняя глава этой книги кратко подытожит все остальные темы в серии, а также другие понятия, кроме тех, что мы уже изучили.
