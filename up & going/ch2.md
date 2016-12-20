@@ -57,11 +57,12 @@ typeof a;				// "object"
 
 **Предупреждение:** это давняя ошибка в JS, но она, вероятно, никогда не будет исправлена. Слишком много кода в веб зависит от таких ошибок, и их исправление вызвало бы гораздо больше ошибок!
 
-Also, note `a = undefined`. We're explicitly setting `a` to the `undefined` value, but that is behaviorally no different from a variable that has no value set yet, like with the `var a;` line at the top of the snippet. A variable can get to this "undefined" value state in several different ways, including functions that return no values and usage of the `void` operator.
 
-### Objects
+Кроме того, обратите внимание, `a = undefined`. Мы намеренно устанавили значение `a` в `undefined` , но поведенчески она не отличается от переменной, которая еще имеет значение, как в случае `var a;` в верхней части фрагмента кода. Переменная может получить это значение `undefined` различными способами, в том числе функцией, не возвращающей значений, и использованием оператора `void`.
 
-The `object` type refers to a compound value where you can set properties (named locations) that each hold their own values of any type. This is perhaps one of the most useful value types in all of JavaScript.
+### Объекты
+
+Тип `object` относится к составным значениям, где вы можете задать свойства (named locations), которые содержит свои собственные значения любого типа. Это, пожалуй, один из наиболее полезных типов значений в языке JavaScript.
 
 ```js
 var obj = {
