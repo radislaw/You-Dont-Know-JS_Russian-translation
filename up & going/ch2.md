@@ -1,7 +1,7 @@
 # You Don't Know JS: Up & Going
 # Chapter 2: Into JavaScript
 
-В предидущей главе, я представил базовые строительные блоки программирования, такие как переменные, циклы, условные выражения и функции. Конечно, весь показанный код написан на JavaScript. Но в этой главе, мы сфокусируемся конкретно на вещах, которые вам необходимо знать о JavaScript, для того, чтобы стать JS разработчиком.
+В предыдущей главе, я представил базовые строительные блоки программирования, такие как переменные, циклы, условные выражения и функции. Конечно, весь показанный код написан на JavaScript. Но в этой главе, мы сфокусируемся конкретно на вещах, которые вам необходимо знать о JavaScript, для того, чтобы стать JS разработчиком.
 
 В данной главе, мы введем несколько понятий, которые не будут полностью изучены до последующих книг *YDKJS*. Вы можете думать об этой главе, как об обзоре тем, подробно освещеных на протяжении всей серии.
 
@@ -50,11 +50,12 @@ typeof a;				// "object"
 
 Возвращаемое значение от вызова оператора `typeof` всегда одно из шести (семи, в es6! - тип "symbol") строковых значений. То есть, вызов `typeof "abc"` возвращает `"string"`, а не `string`.
 
-Notice how in this snippet the `a` variable holds every different type of value, and that despite appearances, `typeof a` is not asking for the "type of `a`", but rather for the "type of the value currently in `a`." Only values have types in JavaScript; variables are just simple containers for those values.
+Обратите внимание, как в этом фрагменте переменная `a` хранит различные типы значений, и что, несмотря на внешность, оператора `typeof a` не запрашивают "тип `a`", а "тип текущего значения в `а`." Только значения имеют тип в JavaScript; переменные являются просто контейнерами для этих значений.
 
-`typeof null` is an interesting case, because it errantly returns `"object"`, when you'd expect it to return `"null"`.
+`typeof null` представляет интересный случай, потому что он возвращает ошибочно `"object"`, когда вы ожидаете от него возвращения `"null"`.
 
-**Warning:** This is a long-standing bug in JS, but one that is likely never going to be fixed. Too much code on the Web relies on the bug and thus fixing it would cause a lot more bugs!
+
+**Предупреждение:** это давняя ошибка в JS, но она, вероятно, никогда не будет исправлена. Слишком много кода в веб зависит от таких ошибок, и их исправление вызвало бы гораздо больше ошибок!
 
 Also, note `a = undefined`. We're explicitly setting `a` to the `undefined` value, but that is behaviorally no different from a variable that has no value set yet, like with the `var a;` line at the top of the snippet. A variable can get to this "undefined" value state in several different ways, including functions that return no values and usage of the `void` operator.
 
