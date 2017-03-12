@@ -1,6 +1,8 @@
 # You Don't Know JS: Async & Performance
 # Chapter 1: Asynchrony: Now & Later
 
+Одной из наиболее важных и все же часто неправильно понятой частью программирования на таком языке как JavaScript является, как выразить и манипулировать поведение программы в течение периода времени.
+
 One of the most important and yet often misunderstood parts of programming in a language like JavaScript is how to express and manipulate program behavior spread out over a period of time.
 
 This is not just about what happens from the beginning of a `for` loop to the end of a `for` loop, which of course takes *some time* (microseconds to milliseconds) to complete. It's about what happens when part of your program runs *now*, and another part of your program runs *later* -- there's a gap between *now* and *later* where your program isn't actively executing.
