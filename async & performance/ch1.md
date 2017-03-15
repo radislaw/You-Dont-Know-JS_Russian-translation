@@ -1,29 +1,32 @@
 # You Don't Know JS: Async & Performance
 # Chapter 1: Asynchrony: Now & Later
 
-Одной из наиболее важных и все же часто неправильно понятой частью программирования на таком языке как JavaScript является, как выразить и манипулировать поведение программы в течение периода времени.
+Одной из наиболее важных и все же часто неправильно понятой частью программирования на таком языке как JavaScript является, то как выразить и манипулировать поведение программы в течение периода времени.
 
 One of the most important and yet often misunderstood parts of programming in a language like JavaScript is how to express and manipulate program behavior spread out over a period of time.
 
-This is not just about what happens from the beginning of a `for` loop to the end of a `for` loop, which of course takes *some time* (microseconds to milliseconds) to complete. It's about what happens when part of your program runs *now*, and another part of your program runs *later* -- there's a gap between *now* and *later* where your program isn't actively executing.
+Дело не только в том, что происходит от начала до конца цикла `for`, который, конечно, занимает *некоторое время* (от микросекунд до миллисекунд). Дело в том, что происходит, когда часть программы запускается *сейчас*, а другая часть программы запускается *позже* - существует промежуток между *сейчас* и *позже*, когда ваша программа не выполняется активно.
 
-Practically all nontrivial programs ever written (especially in JS) have in some way or another had to manage this gap, whether that be in waiting for user input, requesting data from a database or file system, sending data across the network and waiting for a response, or performing a repeated task at a fixed interval of time (like animation). In all these various ways, your program has to manage state across the gap in time. As they famously say in London (of the chasm between the subway door and the platform): "mind the gap."
+It's about what happens when part of your program runs *now*, and another part of your program runs *later* -- there's a gap between *now* and *later* where your program isn't actively executing.
 
-In fact, the relationship between the *now* and *later* parts of your program is at the heart of asynchronous programming.
+Практически всем нетривиальным программам, когда-либо написанным (особенно на JS) так или иначе приходилось управлять этим промежутком, будь то в ожидании ввода пользователя, запроса данных из базы данных или файловой системы, передачи данных по сети и ожидании ответа, или при выполнении повторяющихся задач за фиксированный интервал времени (например, анимация). При всех этих различных способах, ваша программа должна управлять состоянием в этот промежуток времени. Как отлично говорят в Лондоне (пропасти между дверью метро и платформы): "не прислоняться".
+As they famously say in London (of the chasm between the subway door and the platform): "mind the gap."
 
-Asynchronous programming has been around since the beginning of JS, for sure. But most JS developers have never really carefully considered exactly how and why it crops up in their programs, or explored various *other* ways to handle it. The *good enough* approach has always been the humble callback function. Many to this day will insist that callbacks are more than sufficient.
+По сути, отношения между частями *сейчас* и *позже* вашей программы являются сердцем асинхронного программирования.
 
-But as JS continues to grow in both scope and complexity, to meet the ever-widening demands of a first-class programming language that runs in browsers and servers and every conceivable device in between, the pains by which we manage asynchrony are becoming increasingly crippling, and they cry out for approaches that are both more capable and more reason-able.
+Асинхронное программирование существовало примерно с самого начала JS. Но большинство JS разработчиков никогда внимательно не рассматривали, как именно и почему оно возникает в их программах, или изучали различные *другие* способы справиться с этим. В подходе *достаточно хорошо* всегда учавствовали скромные функции обратного вызова. Многие и в наши дни будут настаивать на том, что функций обратных вызовов более чем достаточно.
 
-While this all may seem rather abstract right now, I assure you we'll tackle it more completely and concretely as we go on through this book. We'll explore a variety of emerging techniques for async JavaScript programming over the next several chapters.
+Но так как JS продолжает расти по своим масштабам и сложности, чтобы удовлетворить постоянно растущим требованиям языка программирования первого класса, который работает в браузерах и на серверах, и на всех мыслимых устройствах, старания, с помощью которых мы управляем асинхронностью становятся все более непосильными, и они взывают к подходам, которые более способны и более разумны.
 
-But before we can get there, we're going to have to understand much more deeply what asynchrony is and how it operates in JS.
+Все это может показаться прямо сейчас, достаточно абстрактным, уверяю вас, мы рассмотрим все более полно и конкретно, по мере прохождения этой книги. Мы будем исследовать различные новые методы для асинхронного программирования JavaScript в течение следующих нескольких глав.
+
+Но прежде чем мы сможем приступить к этому, мы попытаемся понять более глубоко, что из себя представляет асинхронность и как она работает в JS.
 
 ## A Program in Chunks
 
-You may write your JS program in one *.js* file, but your program is almost certainly comprised of several chunks, only one of which is going to execute *now*, and the rest of which will execute *later*. The most common unit of *chunk* is the `function`.
+Вы можете написать JS программу в одном файле *.js*, но ваша программа почти наверняка состоит из нескольких частей, только одна из которых будет выполнятся *сейчас*, а остальные *позже*. Наиболее распространенная единица *части программы* это `функция`.
 
-The problem most developers new to JS seem to have is that *later* doesn't happen strictly and immediately after *now*. In other words, tasks that cannot complete *now* are, by definition, going to complete asynchronously, and thus we will not have blocking behavior as you might intuitively expect or want.
+Проблема большинства разработчиков - новичков в JS, похоже, заключается в том, что *позже* не бывает строго и сразу после *сейчас*. Другими словами, задачи, которые невозможно выполнить *сейчас* по определению, будут выполняться асинхронно, и, таким образом, у нас не будет блокирующего поведения, как вы могли бы интуитивно ожидать или хотеть.
 
 Consider:
 
@@ -35,7 +38,7 @@ console.log( data );
 // Oops! `data` generally won't have the Ajax results
 ```
 
-You're probably aware that standard Ajax requests don't complete synchronously, which means the `ajax(..)` function does not yet have any value to return back to be assigned to `data` variable. If `ajax(..)` *could* block until the response came back, then the `data = ..` assignment would work fine.
+Вы, вероятно, знаете, что стандартные AJAX-запросы не проходят синхронно, что означает, что функция `ajax(..)` пока не получила никаких значений, которые можно назначить переменной `data`. Если `ajax(..)` *может* блокировать до тех пор, пока не пришел ответ, то выражение `data = ..` будет работать нормально.
 
 But that's not how we do Ajax. We make an asynchronous Ajax request *now*, and we won't get the results back until *later*.
 
