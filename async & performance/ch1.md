@@ -40,24 +40,26 @@ console.log( data );
 
 Вы, вероятно, знаете, что стандартные AJAX-запросы не проходят синхронно, что означает, что функция `ajax(..)` пока не получила никаких значений, которые можно назначить переменной `data`. Если `ajax(..)` *может* блокировать до тех пор, пока не пришел ответ, то выражение `data = ..` будет работать нормально.
 
-But that's not how we do Ajax. We make an asynchronous Ajax request *now*, and we won't get the results back until *later*.
+Но это не как мы используем Ajax. Мы делаем асинхронный запрос AJAX *"сейчас"*, и мы не получим результаты до *"позже"*.
 
-The simplest (but definitely not only, or necessarily even best!) way of "waiting" from *now* until *later* is to use a function, commonly called a callback function:
+Cамый простой (но наверняка не единственный, и даже не лучший!) способ "ожидания" от *сейчас* до *позже* - использовать функцию часто называемую функцией обратного вызова:
 
 ```js
 // ajax(..) is some arbitrary Ajax function given by a library
 ajax( "http://some.url.1", function myCallbackFunction(data){
 
-	console.log( data ); // Yay, I gots me some `data`!
+	console.log( data ); // Ура, я получил кое-какие `данные`!
 
 } );
 ```
 
-**Warning:** You may have heard that it's possible to make synchronous Ajax requests. While that's technically true, you should never, ever do it, under any circumstances, because it locks the browser UI (buttons, menus, scrolling, etc.) and prevents any user interaction whatsoever. This is a terrible idea, and should always be avoided.
+**Предупреждение:** You may have heard that it's possible to make synchronous Ajax requests. While that's technically true, you should never, ever do it, under any circumstances, because it locks the browser UI (buttons, menus, scrolling, etc.) and prevents any user interaction whatsoever. This is a terrible idea, and should always be avoided.
+
+Прежде чем вы начнете протестовать в знак несогласия, нет, ваше желание избежать беспорядка в колбеках *не* оправдание блокированию, синхронного Ajax.
 
 Before you protest in disagreement, no, your desire to avoid the mess of callbacks is *not* justification for blocking, synchronous Ajax.
 
-For example, consider this code:
+К примеру, consider this code:
 
 ```js
 function now() {
@@ -73,6 +75,8 @@ var answer = now();
 
 setTimeout( later, 1000 ); // Meaning of life: 42
 ```
+
+Есть две части в этой программе: то, что будет работать *сейчас*, и то, что будет работать *позже*. Должно быть вполне очевидно, где эти две части, но давайте будем очень явной:
 
 There are two chunks to this program: the stuff that will run *now*, and the stuff that will run *later*. It should be fairly obvious what those two chunks are, but let's be super explicit:
 
