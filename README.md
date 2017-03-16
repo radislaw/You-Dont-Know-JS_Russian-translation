@@ -15,7 +15,7 @@ Please feel free to contribute to the quality of this content by submitting PR's
 
 ## Titles
 
-* Читать онлайн (бесплатно!): ["Up & Going"](up & going/README.md#you-dont-know-js-up--going), Опубликованно: [Купить сейчас](http://shop.oreilly.com/product/0636920039303.do) печатную версию, но электронный вариант бесплатный!
+* Читать онлайн (бесплатно!): ["Up & Going"](https://github.com/radislaw/You-Dont-Know-JS_Russian-translation/blob/master/up%20%26%20going/README.md), Опубликованно: [Купить сейчас](http://shop.oreilly.com/product/0636920039303.do) печатную версию, но электронный вариант бесплатный!
 * Читать онлайн (бесплатно!): ["Scope & Closures"](scope & closures/README.md#you-dont-know-js-scope--closures), Опубликованно: [Купить сейчас](http://shop.oreilly.com/product/0636920026327.do)
 * Читать онлайн (бесплатно!): ["this & Object Prototypes"](this & object prototypes/README.md#you-dont-know-js-this--object-prototypes), Опубликованно: [Купить сейчас](http://shop.oreilly.com/product/0636920033738.do)
 * Читать онлайн (бесплатно!): ["Types & Grammar"](types & grammar/README.md#you-dont-know-js-types--grammar), Опубликованно: [Купить сейчас](http://shop.oreilly.com/product/0636920033745.do)
