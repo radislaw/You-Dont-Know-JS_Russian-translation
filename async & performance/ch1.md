@@ -192,6 +192,8 @@ So, in other words, your program is generally broken up into lots of small chunk
 
 ## Parallel Threading
 
+Очень часто смешивают термины "асинхронно" и "параллельно", но на самом деле они достаточно разные. Помните, асинхронность связана с разрывом между *сейчас* и *потом*. А параллельно идет о вещах, будучи в состоянии происходить одновременно.
+
 It's very common to conflate the terms "async" and "parallel," but they are actually quite different. Remember, async is about the gap between *now* and *later*. But parallel is about things being able to occur simultaneously.
 
 The most common tools for parallel computing are processes and threads. Processes and threads execute independently and may execute simultaneously: on separate processors, or even separate computers, but multiple threads can share the memory of a single process.
